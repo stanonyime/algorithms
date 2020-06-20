@@ -3,7 +3,6 @@ package algorithms
 // InsertionSortInt returns int slice sorted in ascending order
 func InsertionSortInt(arr []int) []int {
 	var min int
-	res := make([]int, len(arr), cap(arr))
 
 	for i := 0; i < len(arr); i++ {
 		min = i
@@ -13,10 +12,12 @@ func InsertionSortInt(arr []int) []int {
 				min = j
 			}
 		}
-		res[i] = arr[min]
-		res[min] = arr[i]
+
+		temp := arr[i]
+		arr[i] = arr[min]
+		arr[min] = temp
 	}
 
-	return res
+	return arr
 
 }

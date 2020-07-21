@@ -6,14 +6,14 @@ import (
 
 // Stack defines a struct for a stack data structure
 type Stack struct {
-	items []int
+	items []interface{}
 }
 
-func (s *Stack) Push(item int) {
+func (s *Stack) Push(item interface{}) {
 	s.items = append(s.items, item)
 }
 
-func (s *Stack) Pop() (int, error) {
+func (s *Stack) Pop() (interface{}, error) {
 	if len(s.items) < 1 {
 		return 0, errors.New("Stack is empty")
 	}
